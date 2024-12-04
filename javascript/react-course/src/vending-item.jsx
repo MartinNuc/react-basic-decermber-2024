@@ -1,12 +1,20 @@
+import { useState } from "react";
+
 export function VendingItem(props) {
 
+  const [availableCount, setAvailableCount] = useState(5);
+
   function handleClick() {
-    console.log(props.name)
+    if (availableCount <= 0) {
+      return;
+    }
+
+    setAvailableCount(availableCount - 1);
   }
 
   return (
     <button onClick={handleClick}>
-      1x {props.name}
+      {availableCount}x {props.name}
     </button>
   );
 }
