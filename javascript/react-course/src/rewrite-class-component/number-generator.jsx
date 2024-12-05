@@ -6,9 +6,7 @@ export function NumberGenerator({pregeneratedCount}) {
   );
 
   function generateNew() {
-    generatedNumbers.push(Math.random());
-    const novyVariable = generatedNumbers
-    setGeneratedNumber([...novyVariable]);
+    setGeneratedNumber([...generatedNumbers, Math.random()]);
   }
 
   return <div>
