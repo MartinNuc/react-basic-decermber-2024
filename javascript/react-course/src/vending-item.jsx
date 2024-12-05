@@ -15,7 +15,7 @@ export function VendingItem(props) {
   }
 
   return (
-    <>
+    <div>
       <button
         className={outOfStock ? styles["out-of-stock-background"] : null}
         onClick={handleClick}
@@ -24,6 +24,6 @@ export function VendingItem(props) {
       </button>
 
       {outOfStock && <div className={styles["out-of-stock"]}>Out of stock</div>}
-    </>
+    </div>
   );
 }
