@@ -1,4 +1,5 @@
 import { useState } from "react";
+import styles from "./vending-item.module.css";
 
 export function VendingItem(props) {
   const [availableCount, setAvailableCount] = useState(5);
@@ -14,9 +15,15 @@ export function VendingItem(props) {
   }
 
   return (
-    <button onClick={handleClick}>
-      {availableCount}x {props.name}
-      {outOfStock && <div style={{ color: 'red' }}>Out of stock</div>}
-    </button>
+    <>
+      <button
+        className={outOfStock ? styles["out-of-stock-background"] : null}
+        onClick={handleClick}
+      >
+        {availableCount}x {props.name}
+      </button>
+
+      {outOfStock && <div className={styles["out-of-stock"]}>Out of stock</div>}
+    </>
   );
 }

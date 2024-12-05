@@ -1,4 +1,3 @@
-import "./App.css";
 import {VendingMachine} from './vending-machine';
 import {NumberGenerator} from './rewrite-class-component/number-generator';
 
