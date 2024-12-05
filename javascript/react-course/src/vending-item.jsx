@@ -1,7 +1,6 @@
 import { useState } from "react";
 
 export function VendingItem(props) {
-
   const [availableCount, setAvailableCount] = useState(5);
 
   function handleClick() {
