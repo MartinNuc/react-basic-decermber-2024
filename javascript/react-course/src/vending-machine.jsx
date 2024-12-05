@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { VendingItem } from "./vending-item";
 import styles from "./vending-machine.module.css";
+import { DropdownComponent } from "./dropdown/dropdown";
 
 export function VendingMachine() {
   const [items, setItems] = useState([
@@ -22,6 +23,7 @@ export function VendingMachine() {
   ]);
 
   const [cart, setCart] = useState([]);
+  const [wallet, setWallet] = useState(0);
 
   function addToCart(addedItem) {
     setItems(
@@ -32,11 +34,23 @@ export function VendingMachine() {
     setCart([...cart, addedItem]);
   }
 
-  const totalPrice = cart.map(item => item.price).reduce((acc, curr) => acc + curr, 0);
+  function chargeCoins(amount) {
+    setWallet(wallet + amount);
+  }
+
+  const totalPrice = cart
+    .map((item) => item.price)
+    .reduce((acc, curr) => acc + curr, 0);
 
   return (
     <div className={styles["items-list"]}>
-      Total price: {totalPrice},-
+      <div>Total price: {totalPrice},-</div>
+      <div>Coins: {wallet},-</div>
+      <DropdownComponent label="🪙 Insert coin">
+        <button onClick={() => chargeCoins(10)}>+10 coins</button>
+        <button onClick={() => chargeCoins(20)}>+20 coins</button>
+        <button onClick={() => chargeCoins(50)}>+50 coins</button>
+      </DropdownComponent>
 
       {items.map((item) => (
         <VendingItem

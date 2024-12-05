@@ -1,10 +1,24 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import styles from "./dropdown.module.css";
 
 export function DropdownComponent({ label, children }) {
   const [isListVisible, setIsListVisible] = useState(false);
 
-  function handleToggleList() {
+  useEffect(() => {
+    if (!isListVisible) {
+      return;
+    }
+
+    const handleClick = () => {
+      setIsListVisible(false);
+    }
+    window.addEventListener('click', handleClick)
+
+    return () => window.removeEventListener('click', handleClick)
+  }, [isListVisible]);
+
+  function handleToggleList(e) {
+    e.stopPropagation();
     setIsListVisible(!isListVisible);
   }
 
