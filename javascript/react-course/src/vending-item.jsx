@@ -17,6 +17,7 @@ export function VendingItem(props) {
   return (
     <div>
       <button
+        disabled={outOfStock}
         className={outOfStock ? styles["out-of-stock-background"] : null}
         onClick={handleClick}
       >
