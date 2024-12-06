@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useImperativeHandle } from "react";
 import styles from "./vending-item.module.css";
 import {ThemeContext} from './vending-machine';
 import cn from 'classnames';
