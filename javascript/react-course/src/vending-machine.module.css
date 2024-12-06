@@ -6,3 +6,8 @@
   border: 1px solid white;
   gap: 20px;
 }
+
+.light {
+  background: white;
+  color: black;
+}

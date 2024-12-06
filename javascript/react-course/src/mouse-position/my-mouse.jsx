@@ -1,23 +1,8 @@
-import { useEffect, useState } from "react";
+import {useMousePosition} from './use-mouse-position';
 
 export const MyMouse = () => {
-  const [mousePosition, setMousePosition] = useState({x: 0, y: 0});
+  const {x, y} = useMousePosition();
   
-  useEffect(() => {
-    const onMouseMove = (event) => {
-      setMousePosition({
-        x: event.clientX,
-        y: event.clientY
-      });
-    };
-    window.addEventListener('mousemove', onMouseMove);
-    
-    return () => {
-      window.removeEventListener('mousemove', onMouseMove);
-    };
-  }, []);
-  
-  const {x, y} = mousePosition;
   return (
     <div>My mouse x position is {x} and y position is {y}</div>
   );
