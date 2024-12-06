@@ -19,7 +19,7 @@ export function VendingItem({ item, onItemClicked }) {
   }
 
   return (
-    <div>
+    <div data-testid="VendingItem">
       <button
         disabled={outOfStock}
         className={cn({

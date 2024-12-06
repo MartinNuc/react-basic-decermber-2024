@@ -60,7 +60,7 @@ export function VendingMachine() {
           [styles["items-list"]]: true,
           [styles["light"]]: theme === 'light',
         })}>
-        <div>Total price: {totalPrice},-</div>
+        <div data-testid="totalPrice">Total price: {totalPrice},-</div>
         <div>Coins: {wallet},-</div>
         <DropdownComponent label="🪙 Insert coin" onDropdownOpened={() => inputRef.current.focus()}>
           <button onClick={() => chargeCoins(10)}>+10 coins</button>
