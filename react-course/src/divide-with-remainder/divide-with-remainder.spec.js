@@ -6,5 +6,13 @@ it('0/3 = 0 zb 0', () => {
   expect(result.result).toBe(0);
   expect(result.remainder).toBe(0);
 })
-it.todo('10/3 = 3 zb 1')
-it.todo('fails when dividing by zero')
+
+it('10/3 = 3 zb 1', () => {
+  const result = divideWithRemainder(10, 3);
+  expect(result.result).toBe(3);
+  expect(result.remainder).toBe(1);
+})
+
+it('fails when dividing by zero', () => {
+  expect(() => divideWithRemainder(5, 0)).toThrow();
+})

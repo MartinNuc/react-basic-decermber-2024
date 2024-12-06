@@ -3,7 +3,7 @@ export function divideWithRemainder(a, b) {
     throw new Error('Cannot divide by zero.');
   }
   
-  const result = Math.ceil(a / b);
+  const result = Math.floor(a / b);
   const remainder = a % b;
   
   return {
