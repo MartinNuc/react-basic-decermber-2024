@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { VendingItem } from "./vending-item";
 import styles from "./vending-machine.module.css";
 import { DropdownComponent } from "./dropdown/dropdown";
@@ -51,6 +51,8 @@ export function VendingMachine() {
     .map((item) => item.price)
     .reduce((acc, curr) => acc + curr, 0);
 
+  const inputRef = useRef(null);
+
   return (
     <ThemeContext.Provider value={theme}>
       <button onClick={toggleTheme}>{theme === 'dark' ? '🌕' : '🌑'}</button>
@@ -60,10 +62,11 @@ export function VendingMachine() {
         })}>
         <div>Total price: {totalPrice},-</div>
         <div>Coins: {wallet},-</div>
-        <DropdownComponent label="🪙 Insert coin">
+        <DropdownComponent label="🪙 Insert coin" onDropdownOpened={() => inputRef.current.focus()}>
           <button onClick={() => chargeCoins(10)}>+10 coins</button>
           <button onClick={() => chargeCoins(20)}>+20 coins</button>
           <button onClick={() => chargeCoins(50)}>+50 coins</button>
+          Custom amount: <input type="number" ref={inputRef} />
         </DropdownComponent>
 
         {items.map((item) => (
