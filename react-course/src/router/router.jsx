@@ -3,6 +3,7 @@ import { Layout } from "./layout";
 import { Joke } from "../joke/joke";
 import { VendingMachine } from "../vending-machine";
 import {Welcome} from './welcome'
+import {RegistrationForm} from '../pages/registration-form'
 
 export const router = createBrowserRouter([
   {
@@ -16,6 +17,10 @@ export const router = createBrowserRouter([
       {
         path: 'joke',
         element: <Joke />
+      },
+      {
+        path: 'registration',
+        element: <RegistrationForm />
       },
       {
         path: 'vending-machine',
